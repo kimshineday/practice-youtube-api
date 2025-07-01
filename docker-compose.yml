@@ -1,0 +1,12 @@
+version: "3.11" # Docker ComposeAPI Ver.
+services:
+  app: # Django
+    build:
+      context: . # root에 있음
+      args:
+        - DEV=true # 개발 환경
+    ports:
+      - "8000:8000" # Django 포트
+    volumes:
+      - ./app:/app
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
