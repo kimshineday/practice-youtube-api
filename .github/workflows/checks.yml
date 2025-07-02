@@ -19,7 +19,7 @@ jobs: #역할을 나타냄
     - name: Check Out - pull repository code # GitHub에 있는 코드를 작업환경으로 가져오는 역할
       uses: actions/checkout@v2
     - name: Run Test-Code # 테스트 코드 실행
-      run: docker-compose run --rm app sh -c 'python manage.py test'
+      run: docker compose run --rm app sh -c 'python manage.py test'
     - name: Run Flake8 for Lint Check # pep8 style guide 잘 지키고 있는지 확인
-      run: docker-compose run --rm app sh -c 'flake8'
+      run: docker compose run --rm app sh -c 'flake8'
 
