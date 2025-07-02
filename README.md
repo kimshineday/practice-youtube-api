@@ -24,3 +24,14 @@ Registry : 이미지 저장소 (꽁용 Dock)
 - container 1 : Django
 - container 2 : DataBase [Postgre SQL]
 - container 3 : NGINX 
+
+## PostgreSQL
+Django에서 지원해주는 Database 모델.
+### Django와 호환성이 좋은 이유
+#### JSONB 타입 
+Django-ORM의 Python 객체 지향적인 방식으로 데이터베이스와 상호작용을 할 수 있게 해준다.
+Django에서 기본적으로 지원하는 JSONField와 PostgreSQL의 JSONB 타입을 통해 Python의 딕셔너리처럼 사용할 수 있는 장점이 있다.
+또, Django ORM에서 JSON 쿼리 기능을 Python 문법으로 추상화하여 제공한다.
+### 그외.
+- Schemaless, 특정필드가 고정된 스키마 없이 유연하게 데이터를 처리할때 유용
+-> 유연한 비정형 데이터 관리에 유용하다.
