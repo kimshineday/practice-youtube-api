@@ -1,4 +1,4 @@
-# PRACTICE-YOUTUBE-API
+# Project Setting : PRACTICE-YOUTUBE-API
 ## 🐳 Docker
 프로세스를 격리하는 컨테이너 플랫폼.  
 '작은 OS를 하나 더 띄운다.'
@@ -35,3 +35,45 @@ Django에서 기본적으로 지원하는 JSONField와 PostgreSQL의 JSONB 타�
 ### 그외.
 - Schemaless, 특정필드가 고정된 스키마 없이 유연하게 데이터를 처리할때 유용
 -> 유연한 비정형 데이터 관리에 유용하다.
+
+# PRACTICE-YOUTUBE-API
+## Model 구조
+### 1. User [users]
+- nickname
+- is_business
+#### LogIn 관련
+- email
+- password
+### 2. Video [videos]
+#### * 영상 관련 데이터
+- title
+- descriptioin
+- views_count
+- thumbnail
+- video_file : link
+> 이미지, 동영상 파일의 경우, Django 환경에서는 과부하가 걸림.  
+보통은 S3 Bucket을 사용, 이미지와 동영상을 링크화 시켜 사용한다.
+
+### 3. Reaction [reactions]
+#### 비디오 관련 반응 정보들, 좋아요 등.
+- User : FK
+- Video : FK
+- reaction (like, dislike, cancel) > 실제 youtube rest api
+
+### 4. Comment [comments]
+#### 댓글 관련 정보.
+- User : FK
+- Video : FK
+- content
+- like : comment에 관한 반응들
+- dislike
+
+### 5. Subscription [subscriptions]
+#### 구독 관련 정보
+- User : FK > subscriber 내가 구독한 사람
+- User : FK > subscribed_to 나를 구독한 사람
+
+### 6. Common
+#### 기본적으로 사용할 정보들
+- created_at
+- updated_at
