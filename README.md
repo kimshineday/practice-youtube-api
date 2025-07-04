@@ -38,6 +38,7 @@ Django에서 기본적으로 지원하는 JSONField와 PostgreSQL의 JSONB 타�
 
 # PRACTICE-YOUTUBE-API
 ## Model 구조
+: 모델을 먼저 정의. Django > DB migrations 테이블 구조 정의 후 REST API
 ### 1. User [users]
 - nickname
 - is_business
