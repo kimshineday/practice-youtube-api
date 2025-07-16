@@ -24,7 +24,7 @@ services:
   db: #PostgreSQL Database
     image: postgres:16-alpine
     volumes:
-    - ./data/db:/var/lib/postgresql/data
+    - db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=youtube
       - POSTGRES_USER=kimshineday
